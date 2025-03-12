@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Box from "@mui/material/Box";
+import ChatbotFAB from "./features/Chatbot/components/ChatbotFAB";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <main>
+      <Box sx={{ height: "100vh", position: "relative" }}>
+        <Box
+          sx={{
+            color: "primary.main",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Hello
+        </Box>
+        <ChatbotFAB />
+      </Box>
+    </main>
   );
 }
 
