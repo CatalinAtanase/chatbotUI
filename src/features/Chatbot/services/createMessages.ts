@@ -1,3 +1,4 @@
+import { generateRandomID } from "../../../utils/generateRandomID";
 import {
   Action,
   ChatMessage,
@@ -10,7 +11,7 @@ export const createBotMessage = (
   action?: Action
 ): ChatMessage => {
   return {
-    id: Math.random().toString(36).substring(7),
+    id: generateRandomID(),
     text: message,
     sender: "bot",
     options,
@@ -43,7 +44,7 @@ export const createLoadingMessage = () => createBotMessage("Loading...");
 
 export const createUserMessage = (message: string): ChatMessage => {
   return {
-    id: Math.random().toString(36).substring(7),
+    id: generateRandomID(),
     text: message,
     sender: "user",
   };

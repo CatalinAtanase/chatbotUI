@@ -39,6 +39,7 @@ export const useChatbot = () => {
           ),
         ]);
       } catch (error) {
+        setStockExchangeData([]);
         setChatMessages([createBotErrorMessage()]);
       }
     };
