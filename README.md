@@ -1,46 +1,70 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chatbot UI Project
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+The Chatbot UI project is a React application bootstrapped with Create React App. It features an interactive chatbot interface built with Material UI. The chatbot simulates conversations about stock exchange data by displaying messages, interactive options, and error/loading states.
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **public/** Contains static assets such as [index.html](public/index.html), icons, and the manifest ([manifest.json](public/manifest.json)).
+- **src/** Main source directory containing:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  - **App.tsx**The root component that renders the main layout along with the chatbot.
+  - **index.tsx**Entry point that bootstraps the React app.
+  - **data/** Contains JSON data for stocks (e.g. `Chatbot - stock data.json`).
+  - **features/Chatbot/** Contains all chatbot-specific code:
+    - **components/**:
+      - [`BotMessage.tsx`](src/features/Chatbot/components/BotMessage.tsx) – Renders bot messages with interactive options.
+      - [`Chatbot.tsx`](src/features/Chatbot/components/Chatbot.tsx) – Main container for the chatbot UI including header, content, and footer.
+      - [`ChatbotContent.tsx`](src/features/Chatbot/components/ChatbotContent.tsx) – Displays conversation messages, including bot and user messages.
+      - [`ChatbotFAB.tsx`](src/features/Chatbot/components/ChatbotFAB.tsx) – Floating Action Button to toggle the chatbot display.
+      - [`ChatbotHeader.tsx`](src/features/Chatbot/components/ChatbotHeader.tsx) – Header for the chatbot with title and close button.
+      - [`ChatbotFooter.tsx`](src/features/Chatbot/components/ChatbotFooter.tsx) – Footer with an instruction message and a disabled send icon.
+      - [`MessageOption.tsx`](src/features/Chatbot/components/MessageOption.tsx) – Button component for each selectable option in bot messages.
+      - [`Message.tsx`](src/features/Chatbot/components/Message.tsx) – Renders system messages.
+      - [`UserMessage.tsx`](src/features/Chatbot/components/UserMessage.tsx) – Renders messages sent by the user.
+    - **hooks/**:
+      - [`useChatbot.ts`](src/features/Chatbot/hooks/useChatbot.ts) – Custom hook managing chatbot state, data fetching, and scroll behavior.
+    - **services/**:
+      - [`createMessages.ts`](src/features/Chatbot/services/createMessages.ts) – Contains functions to create various chatbot messages.
+      - **api/**:
+        - [`stockServices.ts`](src/features/Chatbot/services/api/stockServices.ts) – Simulated API service to fetch stock exchange data.
+    - **types/**:
+      - [`chatbotTypes.ts`](src/features/Chatbot/types/chatbotTypes.ts) – TypeScript definitions for messages, actions, and stock data.
+- **theme/** Contains Material UI theme configuration ([theme.ts](src/theme/theme.ts)).
+- **utils/** Utility functions:
 
-### `npm test`
+  - [`generateRandomID.ts`](src/utils/generateRandomID.ts) – Generates random IDs for messages.
+  - [`simulateHTTPWaitTime.ts`](src/utils/simulateHTTPWaitTime.ts) – Simulates wait times for API requests.
+  - [`simulateRequestFailure.ts`](src/utils/simulateRequestFailure.ts) – Simulates occasional API request failures.
+- **Configuration Files**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - `.gitignore` – Git exclusion rules.
+  - `package.json` – Project dependencies and scripts.
+  - `tsconfig.json` – TypeScript compiler configuration.
 
-### `npm run build`
+## How to Run the Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js** (v20.0.0 was used)
+- **npm** (v9.6.4 was used)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository.**
+2. **Navigate to the project directory.**
+3. **Install dependencies:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```sh
+   npm install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running in Development Mode
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Start the development server with:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+npm start
+```
