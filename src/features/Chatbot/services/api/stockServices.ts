@@ -11,7 +11,7 @@ export const getStockExchangeData = async (): Promise<
     setTimeout(async () => {
       if(simulateRequestFailure()) reject();
       try {
-        const data = await fetch("../../../../data/Chatbot - stock data.json");
+        const data = await fetch("/data/Chatbot - stock data.json");
         const json = await data.json();
         resolve(json);
       } catch (error) {

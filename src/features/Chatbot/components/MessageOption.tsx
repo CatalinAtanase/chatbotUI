@@ -1,18 +1,15 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 interface StockOptionProps {
   text: string;
-  code: string;
   onClickHandler: () => void;
   isDisabled?: boolean;
 }
 
 const StockOption = ({
   text,
-  code,
   onClickHandler,
   isDisabled,
 }: StockOptionProps) => {

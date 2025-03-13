@@ -53,7 +53,6 @@ export default function BotMessage({
                 >
                   <MessageOption
                     text={option.name}
-                    code={option.code}
                     onClickHandler={() => onClickHandler(action, option.code)}
                     isDisabled={isDisabled}
                   />
