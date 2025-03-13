@@ -7,12 +7,11 @@ The Chatbot UI project is a React application bootstrapped with Create React App
 
 ## Project Structure
 
-- **public/** Contains static assets such as [index.html](public/index.html), icons, and the manifest ([manifest.json](public/manifest.json)).
+- **public/** Contains static assets such as [index.html](public/index.html), icons, the manifest ([manifest.json](public/manifest.json)) and json data.
 - **src/** Main source directory containing:
 
   - **App.tsx**The root component that renders the main layout along with the chatbot.
   - **index.tsx**Entry point that bootstraps the React app.
-  - **data/** Contains JSON data for stocks (e.g. `Chatbot - stock data.json`).
   - **features/Chatbot/** Contains all chatbot-specific code:
     - **components/**:
       - [`BotMessage.tsx`](src/features/Chatbot/components/BotMessage.tsx) – Renders bot messages with interactive options.

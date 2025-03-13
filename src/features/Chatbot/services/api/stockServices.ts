@@ -1,4 +1,3 @@
-import stockExchangeData from "../../../../data/Chatbot - stock data.json";
 import { simulateRequestTime } from "../../../../utils/simulateHTTPWaitTime";
 import { simulateRequestFailure } from "../../../../utils/simulateRequestFailure";
 import { StockExchangeDataAPI } from "./../../types/chatbotTypes";
@@ -9,9 +8,15 @@ export const getStockExchangeData = async (): Promise<
   return new Promise((resolve, reject) => {
     const requestTime = simulateRequestTime();
     
-    setTimeout(() => {
+    setTimeout(async () => {
       if(simulateRequestFailure()) reject();
-      resolve(stockExchangeData);
+      try {
+        const data = await fetch("../../../../data/Chatbot - stock data.json");
+        const json = await data.json();
+        resolve(json);
+      } catch (error) {
+        reject();
+      }
     }, requestTime);
   });
 };
